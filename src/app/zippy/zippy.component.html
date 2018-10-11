@@ -1,0 +1,19 @@
+
+<div class="panel-group" role="tablist" aria-multiselectable="true">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          {{ title }}
+        
+        <a class="pull-right" role="button" data-toggle="collapse" href="#collapse1" aria-expanded="false" aria-controls="collapseOne" (click)="onClick()">
+            <span class="glyphicon glyphicon-chevron-down"></span>
+        </a>
+      </h4>
+      </div>
+      <div id="collapse1" class="panel-collapse collapse" [class.in]="isExpanded" role="tabpanel" aria-labelledby="headingOne">
+        <div class="panel-body">
+            {{ innerContent }}
+        </div>
+      </div>
+    </div>
+</div>
