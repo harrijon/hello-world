@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'like',
@@ -8,14 +8,19 @@ import { Component, OnInit, Input } from '@angular/core';
 export class LikeComponent {
 
   @Input('isActive')isLiked: boolean;
-  @Input('likesCount')likesCount: number;
+  @Output('likesCount')likesCount: number;
+
+  
+  constructor() { 
+    this.likesCount = 0;
+  }
 
   onClick() {
     let posNeg = (this.isLiked) ? -1 : 1;
     
     this.likesCount += posNeg;
     this.isLiked = !this.isLiked;
-
+    console.log("likesCount: " + this.likesCount);
   }
 
 }
