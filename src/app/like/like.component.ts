@@ -20,7 +20,7 @@ export class LikeComponent {
     
     this.likesCount += posNeg;
     this.isLiked = !this.isLiked;
-    console.log("likesCount: " + this.likesCount);
+    //console.log("likesCount: " + this.likesCount);
   }
 
 }
