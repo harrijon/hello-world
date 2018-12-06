@@ -1,3 +1,19 @@
-<p>
-  github-profile works!
-</p>
+<div class="media">
+  
+  <div class="media-left">
+      <img class="avatar media-object" src="{{ profile.avatar_url }}" alt="...">
+  </div>
+  <div class="media-body">
+      
+
+    <h4 class="media-heading">
+      {{ profile.name }}
+    </h4>
+    <h6>{{ profile.company }}</h6>
+    <a href="{{ profile.html_url }}">{{ profile.html_url }}</a>
+    <br />
+    <a href="{{ profile.blog }}">{{ profile.blog }}</a>
+    
+  </div>
+
+</div>
