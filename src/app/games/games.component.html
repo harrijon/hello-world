@@ -1,0 +1,18 @@
+<div *ngFor="let game of games" class="content">
+      <div class="row">
+        <div class="col-md-3 away">
+          <span class="team away">{{ game.away }}</span>
+          <span class="team away abbrev">{{ game.awayAbbrev }}</span>
+          <input type="radio" name="{{ game.id }}" id="{{ game.id }}_away" value="{{ game.awayTeamID }}">
+        </div>
+        <div class="col-md-1 at text-center">@</div>
+        <div class="col-md-3">
+          <input type="radio" name="{{ game.id }}" id="{{ game.id }}_home" value="{{ game.homeTeamID }}">
+          <span class="team home">{{ game.home }}</span>
+          <span class="team home abbrev">{{ game.homeAbbrev }}</span>
+        </div>
+        <div class="col-md-2">
+            <span class="date">{{ game.gameDate }}</span>
+        </div>
+      </div>
+  </div>

@@ -31,6 +31,8 @@ import { HomeComponent } from './home/home.component';
 import { GithubProfileComponent } from './github-profile/github-profile.component';
 import { NotFoundComponent } from './not-found/not-found.component'; 
 import { GithubProfileService } from './services/github-profile.service';
+import { GamesComponent } from './games/games.component';
+import { GamesService } from './services/games.service';
 
 @NgModule({
   declarations: [
@@ -55,6 +57,7 @@ import { GithubProfileService } from './services/github-profile.service';
     HomeComponent,
     GithubProfileComponent,
     NotFoundComponent,
+    GamesComponent,
   ],
   imports: [
     BrowserModule,
@@ -79,6 +82,10 @@ import { GithubProfileService } from './services/github-profile.service';
         component: PostsComponent
       },
       {
+        path: 'games', 
+        component: GamesComponent
+      },
+      {
         path: '**', 
         component: NotFoundComponent
       }
@@ -90,6 +97,7 @@ import { GithubProfileService } from './services/github-profile.service';
     AuthorsService,
     GithubFollowersService,
     GithubProfileService,
+    GamesService,
     { provide: ErrorHandler, useClass: AppErrorHandler }
   ],
   bootstrap: [AppComponent]

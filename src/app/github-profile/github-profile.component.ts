@@ -22,8 +22,6 @@ export class GithubProfileComponent implements OnInit {
         this.service.get(id)
           .subscribe(profile => {
             this.profile = profile;
-            console.log(profile);
-
           });
       });
   }

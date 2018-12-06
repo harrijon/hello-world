@@ -1,0 +1,12 @@
+.team, .date {
+    font-size: smaller;
+}
+.away {
+    text-align: right;
+}
+.at {
+    font-size: x-small;
+}
+.abbrev {
+    display:none;
+}
