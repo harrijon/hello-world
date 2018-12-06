@@ -53,13 +53,11 @@ export class PostsComponent implements OnInit {
   deletePost(post) {
     var index = this.posts.indexOf(post);
     this.posts.splice(index, 1);
-    console.log("index: " + index);
 
-    this.service.delete(327);
-
-      //.then()
-      //.catch(
-      //  this.posts.splice(index, 0, post);
-      //);
+    this.service.delete(post.id)
+      .subscribe(null,
+      (error: AppError) => {
+        this.posts.splice(index, 0, post);
+      });
   }
 }

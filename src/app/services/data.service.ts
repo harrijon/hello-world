@@ -6,7 +6,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
-import 'rxjs/add/operator/toPromise';
+// import 'rxjs/add/operator/toPromise';
 import 'rxjs/add/observable/throw';
 
 @Injectable()
@@ -40,7 +40,7 @@ export class DataService {
   delete(id) {
     return this.http.delete(this.url + '/' + id)
       .map(response => response.json())
-      .toPromise()
+      // .toPromise()
       .catch(this.handleError);
   }
 
