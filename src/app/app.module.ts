@@ -33,6 +33,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { GithubProfileService } from './services/github-profile.service';
 import { GamesComponent } from './games/games.component';
 import { GamesService } from './services/games.service';
+import { PicksService } from './services/picks.service';
 
 @NgModule({
   declarations: [
@@ -98,6 +99,7 @@ import { GamesService } from './services/games.service';
     GithubFollowersService,
     GithubProfileService,
     GamesService,
+    PicksService,
     { provide: ErrorHandler, useClass: AppErrorHandler }
   ],
   bootstrap: [AppComponent]

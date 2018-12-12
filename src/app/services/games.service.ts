@@ -4,7 +4,6 @@ import { Http } from '@angular/http';
 
 @Injectable()
 export class GamesService extends DataService {
-  http1: Http;
   url1: string;
 
   constructor(http: Http) {
