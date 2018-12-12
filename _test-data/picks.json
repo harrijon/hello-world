@@ -1,0 +1,66 @@
+{
+    "week": 2,
+    "playerid": 95633,
+    "picks": [
+        {
+            "pickid": "2a38695a-dc34-4b2e-93c5-587eb281eb54",
+            "dateModifiedET": "2018-07-26T17:29:55.527",
+            "playerid": 95633,
+            "gameid": 36217,
+            "winnerID": 367,
+            "rank": 0,
+            "correct": null,
+            "score": 0,
+            "ttlScore": 0,
+            "ttlScoreDiff": 0
+        },
+        {
+            "pickid": "c16bf6cd-f1fe-4e8e-a1ae-9086468d0968",
+            "dateModifiedET": "2018-07-26T17:28:31.91",
+            "playerid": 95633,
+            "gameid": 36553,
+            "winnerID": 393,
+            "rank": 0,
+            "correct": null,
+            "score": 0,
+            "ttlScore": 0,
+            "ttlScoreDiff": 0
+        },
+        {
+            "pickid": "6532adc5-dae6-44e0-ae9f-331b74e7334a",
+            "dateModifiedET": "2018-07-26T17:28:43.91",
+            "playerid": 95633,
+            "gameid": 36518,
+            "winnerID": 383,
+            "rank": 0,
+            "correct": null,
+            "score": 0,
+            "ttlScore": 0,
+            "ttlScoreDiff": 0
+        },
+        {
+            "pickid": "969ebf18-807a-4296-976e-b8e70821a9bc",
+            "dateModifiedET": "2018-07-26T17:00:51.637",
+            "playerid": 95633,
+            "gameid": 36310,
+            "winnerID": 363,
+            "rank": 1,
+            "correct": true,
+            "score": 0,
+            "ttlScore": 0,
+            "ttlScoreDiff": 0
+        },
+        {
+            "pickid": "c96b8ead-b349-4a44-9456-af2319309302",
+            "dateModifiedET": "2018-07-26T17:29:31.733",
+            "playerid": 95633,
+            "gameid": 36477,
+            "winnerID": 394,
+            "rank": 0,
+            "correct": null,
+            "score": 0,
+            "ttlScore": 0,
+            "ttlScoreDiff": 0
+        }
+    ]
+}
