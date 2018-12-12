@@ -8,12 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GamesComponent implements OnInit {
   games: any[];
+  tid: number = 196;
+  wk: number = 2;
 
   constructor(private service: GamesService) { }
 
   ngOnInit() {
-    this.service.getAll()
-      .subscribe(games => this.games = games);
+    this.service.getGames(this.tid, this.wk)
+      .subscribe(respobj => this.games = respobj.games);
   }
 
 }
