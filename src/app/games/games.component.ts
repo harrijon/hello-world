@@ -27,7 +27,7 @@ export class GamesComponent implements OnInit {
   }
 
 
-  picked(gameid: number) {
+  picked(game, teamid: number) {
     let retVal: Boolean = false;
 
     // this.picks.forEach(function(pick) {
@@ -40,7 +40,7 @@ export class GamesComponent implements OnInit {
       let i: number = 0;
 
       while (i < len) {
-        if (this.picks[i].gameid == gameid) {
+        if ((this.picks[i].gameid == game.id) && (this.picks[i].winnerID == teamid)) {
           retVal = true;
           break;
         }

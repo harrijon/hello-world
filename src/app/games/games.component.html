@@ -1,27 +1,23 @@
-<div *ngFor="let pick of picks" class="content">
-  <div class="row">
-    <div class="col-md-3">
-        {{ pick.gameid }}
-    </div>
-  </div>
-</div>
+<span *ngFor="let pick of picks" class="content">
+  {{ pick.gameid }} , 
+</span>
 
 <div *ngFor="let game of games" class="content">
-      <div class="row">
-        <div class="col-md-3 away">
-          <span class="team away">{{ game.away }}</span>
-          <span class="team away abbrev">{{ game.awayAbbrev }}</span>
-          <input type="radio" name="{{ game.id }}" id="{{ game.id }}_away" value="{{ game.awayTeamID }}">
-        </div>
-        <div class="col-md-1 at text-center">@</div>
-        <div class="col-md-3">
-          <input type="radio" [checked]="picked(game.id)" name="{{ game.id }}" id="{{ game.id }}_home" value="{{ game.homeTeamID }}">
-          <span class="team home">{{ game.home }}</span>
-          <span class="team home abbrev">{{ game.homeAbbrev }}</span>
-        </div>
-        <div class="col-md-2">
-            <span class="date small">{{ game.gameDateET }}</span>
-        </div>
-        <div class="col-md-1 at text-center">figure out radio buttons</div>
-      </div>
+  <div class="row">
+    <div class="col-md-3 away">
+      <span class="team away">{{ game.away }}</span>
+      <span class="team away abbrev">{{ game.awayAbbrev }}</span>
+      <input type="radio" [checked]="picked(game, game.awayTeamID)" name="{{ game.id }}" id="{{ game.id }}_away" value="{{ game.awayTeamID }}">
+    </div>
+    <div class="col-md-1 at text-center">@<br />{{ game.id }}</div>
+    <div class="col-md-3">
+      <input type="radio" [checked]="picked(game, game.homeTeamID)" name="{{ game.id }}" id="{{ game.id }}_home" value="{{ game.homeTeamID }}">
+      <span class="team home">{{ game.home }}</span>
+      <span class="team home abbrev">{{ game.homeAbbrev }}</span>
+    </div>
+    <div class="col-md-2">
+        <span class="date small">{{ game.gameDateET }}</span>
+    </div>
+    <div class="col-md-1 at text-center">figure out radio buttons</div>
   </div>
+</div>
