@@ -4,19 +4,22 @@
 
 <div *ngFor="let game of games" class="content">
   <div class="row">
+      <div class="col-md-2 small">
+        <input type="radio" (click)="deSelect(game)" name="{{ game.id }}" ng-control="game.id" id="{{ game.id }}_ds" [value]="game.awayTeamID"> de-select
+      </div>
     <div class="col-md-3 away">
       <span class="team away">{{ game.away }}</span>
       <span class="team away abbrev">{{ game.awayAbbrev }}</span>
-      <input type="radio" [checked]="picked(game, game.awayTeamID)" name="{{ game.id }}" id="{{ game.id }}_away" value="{{ game.awayTeamID }}">
+      <input type="radio" [checked]="picked(game, game.awayTeamID)" name="{{ game.id }}" ng-control="game.id" id="{{ game.id }}_away" [value]="game.awayTeamID">
     </div>
     <div class="col-md-1 at text-center">@<br />{{ game.id }}</div>
     <div class="col-md-3">
-      <input type="radio" [checked]="picked(game, game.homeTeamID)" name="{{ game.id }}" id="{{ game.id }}_home" value="{{ game.homeTeamID }}">
+      <input type="radio" [checked]="picked(game, game.homeTeamID)" name="{{ game.id }}" ng-control="game.id" id="{{ game.id }}_home" [value]="game.homeTeamID" >
       <span class="team home">{{ game.home }}</span>
       <span class="team home abbrev">{{ game.homeAbbrev }}</span>
     </div>
     <div class="col-md-2">
-        <span class="date small">{{ game.gameDateET }}</span>
+        <span class="date at small">{{ game.gameDateET }}</span>
     </div>
     <div class="col-md-1 at text-center">figure out radio buttons</div>
   </div>

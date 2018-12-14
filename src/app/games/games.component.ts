@@ -2,6 +2,7 @@ import { PicksService } from './../services/picks.service';
 import { GamesService } from './../services/games.service';
 import { Component, OnInit } from '@angular/core';
 import { ResolvedStaticSymbol } from '@angular/compiler';
+import { NotFoundError } from '../common/not-found-error';
 
 @Component({
   selector: 'app-games',
@@ -50,4 +51,12 @@ export class GamesComponent implements OnInit {
 
     return retVal;
   }
+
+  deSelect(game) {
+    console.log("deleting pick: " + game.id);
+
+    this.picksService.deletePick(game.id); 
+    
+  }
+
 }
