@@ -15,7 +15,6 @@ import { Pick } from '../pick/pick';
 export class GamesComponent implements OnInit {
   games: any[];
   picks: any[];
-  pick: Pick;
   playerid: number = 95633;
   tid: number = 196;
   wk: number = 2; 
@@ -51,13 +50,14 @@ export class GamesComponent implements OnInit {
 
           //deep copy object
           //src: https://stackoverflow.com/questions/34688517/whats-alternative-to-angular-copy-in-angular
-          let newPick = new Pick();
+          let newPick = new Pick(this.playerid, this.games[g].id);
           newPick.gameid = this.games[g].id;
           newPick.playerid = this.playerid;
-          this.games[g].myPick = Object.assign(new Pick(), newPick);
+          this.games[g].myPick = Object.assign(new Pick(this.playerid, this.games[g].id), newPick);
 
           while (p < pLen) {
             if (this.picks[p].gameid == this.games[g].id) {
+              this.games[g].myPick.id = this.picks[p].id;
               this.games[g].myPick.winnerID = this.picks[p].winnerID;
               break;
             }
@@ -88,7 +88,7 @@ export class GamesComponent implements OnInit {
     let retVal: Boolean = false;
     game.myPick.winnerID = teamid;
 
-    let curPick = new Pick();
+    let curPick = new Pick(game.myPick.playerid, game.id);
 
     if (this.picks !== null) {
       let len: number = this.picks.length;
@@ -108,8 +108,12 @@ export class GamesComponent implements OnInit {
     this.picksService.updatePick(curPick)
       .subscribe(respobj => {
         console.log("respobj: " + respobj);
+        console.log(respobj);
+        let updPick = respobj.picks;
+        game.myPick.id = updPick.id;
       });
-    console.log("teamid: " + teamid + "  -  game.myPick: " + game.myPick.winnerID);
+    console.log("curPick.gameid: " + curPick.gameid + "  -  curPick.playerid: " + curPick.playerid + "  -  curPick.winnerID: " + curPick.winnerID);
+    console.log("teamid: " + teamid + "  -  game.myPick.winnerID: " + game.myPick.winnerID);
 
     return retVal;
   }
@@ -118,9 +122,16 @@ export class GamesComponent implements OnInit {
 
 
   deSelect(game) {
-    console.log("deleting pick: " + game.id);
+    console.log("deleting pick: " + game.myPick.id);
 
-    this.picksService.deletePick(game.id); 
+    this.picksService.delete(game.myPick.id)
+      .subscribe(respobj => {
+        console.log("respobj: " + respobj);
+      },
+      (err) => {
+        console.log("deSelect error: " + err);
+        console.log(err);
+      }); 
     
   }
 

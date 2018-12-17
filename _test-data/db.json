@@ -1,17 +1,16 @@
 {
-  "pick": 
-    {
-      "pickid": "guid",
-      "dateModifiedET": "2018-01-01T00:00:00.000",
-      "playerid": 0,
-      "gameid": 0,
-      "winnerID": 0,
-      "rank": 0,
-      "correct": null,
-      "score": 0,
-      "ttlScore": 0,
-      "ttlScoreDiff": 0
-    },
+  "pick": {
+    "id": "guid",
+    "dateModifiedET": "2018-01-01T00:00:00.000",
+    "playerid": 0,
+    "gameid": 0,
+    "winnerID": 0,
+    "rank": 0,
+    "correct": null,
+    "score": 0,
+    "ttlScore": 0,
+    "ttlScoreDiff": 0
+  },
   "games": [
     {
       "gameDateET": "2018-09-20T09:15:00",
@@ -288,7 +287,7 @@
   ],
   "picks": [
     {
-      "pickid": "2a38695a-dc34-4b2e-93c5-587eb281eb54",
+      "id": "2a38695a-dc34-4b2e-93c5-587eb281eb54",
       "dateModifiedET": "2018-07-26T17:29:55.527",
       "playerid": 95633,
       "gameid": 36217,
@@ -300,7 +299,7 @@
       "ttlScoreDiff": 0
     },
     {
-      "pickid": "c16bf6cd-f1fe-4e8e-a1ae-9086468d0968",
+      "id": "c16bf6cd-f1fe-4e8e-a1ae-9086468d0968",
       "dateModifiedET": "2018-07-26T17:28:31.91",
       "playerid": 95633,
       "gameid": 36553,
@@ -312,7 +311,7 @@
       "ttlScoreDiff": 0
     },
     {
-      "pickid": "6532adc5-dae6-44e0-ae9f-331b74e7334a",
+      "id": "6532adc5-dae6-44e0-ae9f-331b74e7334a",
       "dateModifiedET": "2018-07-26T17:28:43.91",
       "playerid": 95633,
       "gameid": 36518,
@@ -324,7 +323,7 @@
       "ttlScoreDiff": 0
     },
     {
-      "pickid": "969ebf18-807a-4296-976e-b8e70821a9bc",
+      "id": "969ebf18-807a-4296-976e-b8e70821a9bc",
       "dateModifiedET": "2018-07-26T17:00:51.637",
       "playerid": 95633,
       "gameid": 36310,
@@ -336,11 +335,59 @@
       "ttlScoreDiff": 0
     },
     {
-      "pickid": "c96b8ead-b349-4a44-9456-af2319309302",
+      "id": "c96b8ead-b349-4a44-9456-af2319309302",
       "dateModifiedET": "2018-07-26T17:29:31.733",
       "playerid": 95633,
       "gameid": 36477,
       "winnerID": 394,
+      "rank": 0,
+      "correct": null,
+      "score": 0,
+      "ttlScore": 0,
+      "ttlScoreDiff": 0
+    },
+    {
+      "id": "AFxmup4",
+      "dateModifiedET": "2018-01-01T00:00:00.000",
+      "playerid": 95633,
+      "gameid": 36010,
+      "winnerID": 376,
+      "rank": 0,
+      "correct": null,
+      "score": 0,
+      "ttlScore": 0,
+      "ttlScoreDiff": 0
+    },
+    {
+      "id": "f8_B~uS",
+      "dateModifiedET": "2018-01-01T00:00:00.000",
+      "playerid": 95633,
+      "gameid": 36010,
+      "winnerID": 370,
+      "rank": 0,
+      "correct": null,
+      "score": 0,
+      "ttlScore": 0,
+      "ttlScoreDiff": 0
+    },
+    {
+      "id": "esHGLPT",
+      "dateModifiedET": "2018-01-01T00:00:00.000",
+      "playerid": 95633,
+      "gameid": 35956,
+      "winnerID": 373,
+      "rank": 0,
+      "correct": null,
+      "score": 0,
+      "ttlScore": 0,
+      "ttlScoreDiff": 0
+    },
+    {
+      "id": "GrP~8Gs",
+      "dateModifiedET": "2018-01-01T00:00:00.000",
+      "playerid": 95633,
+      "gameid": 35956,
+      "winnerID": 364,
       "rank": 0,
       "correct": null,
       "score": 0,

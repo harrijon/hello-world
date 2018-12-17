@@ -21,14 +21,19 @@ export class PicksService extends DataService {
   }
 
   updatePick(pick) {
-    return this.http.post(this.url, pick)
-    .map(response => response.json())
-    .catch(this.handleError);
+
+    if (pick.id == "") {
+      console.log("post");
+      return this.http.post(this.url, pick)
+      .map(response => response.json())
+      .catch(this.handleError);
+    }
+    else {
+      console.log("patch");
+      return this.http.patch(this.url + '/' + pick.id, pick)
+      .map(response => response.json())
+      .catch(this.handleError);
+    }
   }
 
-  deletePick(gameid) {
-    return this.http.get(this.url + '?gameid=' + gameid)
-    .map(response => response.json())
-    .catch(this.handleError);
-  }
 }

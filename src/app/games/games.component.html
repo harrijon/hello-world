@@ -8,7 +8,7 @@
         <input type="radio" (click)="deSelect(game)" name="{{ game.id }}" ng-control="game.id" id="{{ game.id }}_ds" [value]="game.awayTeamID"> de-select
       </div>
     <div class="col-md-3 away">
-      <span class="team away">{{ game.away }}</span>
+      <span class="team away">{{ game.away }} {{ game.myPick?.id }}</span>
       <span class="team away abbrev">{{ game.awayAbbrev }}</span>
       <input type="radio" 
         [checked]="picked(game, game.awayTeamID)" 
@@ -25,7 +25,7 @@
         name="{{ game.id }}" 
         id="{{ game.id }}_home" 
         [value]="game.homeTeamID">
-      <span class="team home">{{ game.home }}</span>
+      <span class="team home">{{ game.home }} {{ game.myPick?.id }}</span>
       <span class="team home abbrev">{{ game.homeAbbrev }}</span>
     </div>
     <div class="col-md-2">

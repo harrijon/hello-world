@@ -19,7 +19,23 @@ router.render = function (req, res) {
 
 var middlewares = jsonServer.defaults()
 server.use(middlewares)
+
+// server.use(jsonServer.bodyParser)
+// server.use((req, res, next) => {
+//   if (req.method === 'POST') {
+//     req.body.createdAt = Date.now();
+//     console.log('in POST; req: ' + req.toString());
+//   }
+//   // Continue to JSON Server router
+//   next()
+// })
+
 server.use(router)
 server.listen(3000, function () {
-  console.log('JSON Server is running')
+  console.log('JSON Server is running');
+  console.log('http://localhost:3000/');
+  console.log('http://localhost:3000/games');
+  console.log('http://localhost:3000/picks');
+  console.log('');
+  console.log('');
 })
