@@ -20,6 +20,12 @@ export class PicksService extends DataService {
       .catch(this.handleError);
   }
 
+  updatePick(pick) {
+    return this.http.post(this.url, pick)
+    .map(response => response.json())
+    .catch(this.handleError);
+  }
+
   deletePick(gameid) {
     return this.http.get(this.url + '?gameid=' + gameid)
     .map(response => response.json())

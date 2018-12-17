@@ -34,6 +34,8 @@ import { GithubProfileService } from './services/github-profile.service';
 import { GamesComponent } from './games/games.component';
 import { GamesService } from './services/games.service';
 import { PicksService } from './services/picks.service';
+import { PickService } from './services/pick.service';
+
 
 @NgModule({
   declarations: [
@@ -99,6 +101,7 @@ import { PicksService } from './services/picks.service';
     GithubFollowersService,
     GithubProfileService,
     GamesService,
+    PickService,
     PicksService,
     { provide: ErrorHandler, useClass: AppErrorHandler }
   ],
