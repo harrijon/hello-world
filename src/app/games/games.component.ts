@@ -5,7 +5,7 @@ import { Component, OnInit } from '@angular/core';
 import { ResolvedStaticSymbol } from '@angular/compiler';
 import { NotFoundError } from '../common/not-found-error';
 import { forEach } from '@angular/router/src/utils/collection';
-import { PickComponent } from '../pick/pick.component';
+import { Pick } from '../pick/pick';
 
 @Component({
   selector: 'app-games',
@@ -15,7 +15,7 @@ import { PickComponent } from '../pick/pick.component';
 export class GamesComponent implements OnInit {
   games: any[];
   picks: any[];
-  pick: PickComponent;
+  pick: Pick;
   playerid: number = 95633;
   tid: number = 196;
   wk: number = 2; 
@@ -45,33 +45,26 @@ export class GamesComponent implements OnInit {
         let g: number = 0;
         let p: number = 0;
   
-        this.pick.playerid = this.playerid;
-
-        // console.log("gLen: " + gLen);
-        // console.log("pLen: " + pLen);
-
+ 
         while (g < gLen) {
-          console.log("g: " + g);
           let p = 0;
-          let newPick = this.pick;
-          this.games[g].myPick = newPick;
 
-          this.games[g].myPick.gameid = this.games[g].id;
-
-          console.log("a this.games[g].myPick.winnerID: " + this.games[g].myPick.winnerID);
-          this.games[g].myPick.winnerID = 0;
+          //deep copy object
+          //src: https://stackoverflow.com/questions/34688517/whats-alternative-to-angular-copy-in-angular
+          let newPick = new Pick();
+          newPick.gameid = this.games[g].id;
+          newPick.playerid = this.playerid;
+          this.games[g].myPick = Object.assign(new Pick(), newPick);
 
           while (p < pLen) {
-            // console.log("p: " + p);
             if (this.picks[p].gameid == this.games[g].id) {
               this.games[g].myPick.winnerID = this.picks[p].winnerID;
-              // console.log("this.games[g].myPick.winnerID: " + this.games[g].myPick.winnerID);
               break;
             }
+
             p++;
           }
 
-          console.log("b this.games[g].myPick.winnerID: " + this.games[g].myPick.winnerID);
           g++;
         }
       }); 
@@ -82,28 +75,9 @@ export class GamesComponent implements OnInit {
   picked(game, teamid: number) {
     let retVal: Boolean = false;
 
-    // console.log("game.id: " + game.id + " - teamid: " + teamid + "  -  game.myPick: " + game.myPick.winnerID);
     if (game.myPick.winnerID == teamid) {
       retVal = true;
-      console.log("true");
     }
-    // this.picks.forEach(function(pick) {
-    //   if (pick.gameid == gameid) {
-    //     retVal = true;
-    //   }
-    // });
-    // if (this.picks !== null) {
-    //   let len: number = this.picks.length;
-    //   let i: number = 0;
-
-    //   while (i < len) {
-    //     if ((this.picks[i].gameid == game.id) && (this.picks[i].winnerID == teamid)) {
-    //       retVal = true;
-    //       break;
-    //     }
-    //     i++;
-    //   }
-    // }
 
     return retVal;
   }
@@ -114,7 +88,7 @@ export class GamesComponent implements OnInit {
     let retVal: Boolean = false;
     game.myPick.winnerID = teamid;
 
-    let curPick;
+    let curPick = new Pick();
 
     if (this.picks !== null) {
       let len: number = this.picks.length;
@@ -131,11 +105,17 @@ export class GamesComponent implements OnInit {
 
     curPick.winnerID = teamid;
     
-    this.picksService.updatePick(curPick);
-    console.log("teamid: " + teamid + "  -  game.myPick: " + game.myPick);
+    this.picksService.updatePick(curPick)
+      .subscribe(respobj => {
+        console.log("respobj: " + respobj);
+      });
+    console.log("teamid: " + teamid + "  -  game.myPick: " + game.myPick.winnerID);
 
     return retVal;
   }
+
+
+
 
   deSelect(game) {
     console.log("deleting pick: " + game.id);
