@@ -88,32 +88,11 @@ export class GamesComponent implements OnInit {
     let retVal: Boolean = false;
     game.myPick.winnerID = teamid;
 
-    let curPick = new Pick(game.myPick.playerid, game.id);
-
-    if (this.picks !== null) {
-      let len: number = this.picks.length;
-      let i: number = 0;
-
-      while (i < len) {
-        if ((this.picks[i].gameid == game.id) && (this.picks[i].winnerID == teamid)) {
-          curPick = this.picks[i];
-          break;
-        }
-        i++;
-      }
-    }
-
-    curPick.winnerID = teamid;
-    
-    this.picksService.updatePick(curPick)
+    this.picksService.updatePick(game.myPick)
       .subscribe(respobj => {
-        console.log("respobj: " + respobj);
-        console.log(respobj);
         let updPick = respobj.picks;
         game.myPick.id = updPick.id;
       });
-    console.log("curPick.gameid: " + curPick.gameid + "  -  curPick.playerid: " + curPick.playerid + "  -  curPick.winnerID: " + curPick.winnerID);
-    console.log("teamid: " + teamid + "  -  game.myPick.winnerID: " + game.myPick.winnerID);
 
     return retVal;
   }
@@ -127,6 +106,10 @@ export class GamesComponent implements OnInit {
     this.picksService.delete(game.myPick.id)
       .subscribe(respobj => {
         console.log("respobj: " + respobj);
+        console.log(respobj);
+        let newPick = new Pick(this.playerid, game.id);
+        game.myPick = Object.assign(new Pick(this.playerid, game.id), newPick);
+
       },
       (err) => {
         console.log("deSelect error: " + err);
